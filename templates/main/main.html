@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+
+{% block block_1 %}
+
+    <form method="post">
+    {% csrf_token %}
+    <button type="submit" name="Login">Login</button>
+    </form>
+
+    <form method="post">
+    {% csrf_token %}
+    <button type="submit" name="Register">Register</button>
+    </form>
+
+{% endblock %}
