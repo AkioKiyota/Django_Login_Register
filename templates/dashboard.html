@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <div class="text-center">
+        <img style="width: 200px; height: 200px" class="rounded-circle" src="{{ user.user_profile.picture_url }}"><br><br> <hr> <br>
+        </div>
+
+        <div class="text-center">
+        Hi {{ user.username }}!
+        <br>
+        Your email is  {{ user.email }}
+        <br>
+        About myself:
+        <br>
+        {{ user.user_profile.about }}
+        <br>
+        My cell-phone:
+        {{ user.user_profile.phone_num }}
+
+        <p><a href="{% url 'logout' %}">Logout</a></p>
+
+    {% else %}
+        <p>You are not logged in.</p>
+        <a href="{% url 'login' %}">Login</a>
+        <br>or<br>
+        <a href="{% url 'register_user' %}">Register</a>
+        </div>
+    {% endif %}
+{% endblock %}
